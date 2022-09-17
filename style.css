@@ -1,21 +1,4 @@
 body {
     padding: 0;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.cell {
-    border: 1px solid black;
-    min-width: 20px;
-    min-height: 20px;
-    display: inline-block;
-    margin-right: 4px;
-}
-
-#container {
-    border: 5px solid rgb(87, 87, 87);
-    padding: 4px 0px 0px 4px;
 }
