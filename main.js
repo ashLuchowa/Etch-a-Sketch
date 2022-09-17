@@ -3,6 +3,10 @@ let rows = document.getElementsByClassName('gridRow');
 let cells = document.getElementsByClassName('cell');
 
 //Create a default 16x16 grid
+function defaultGrid() {
+    makeRows(16);
+    makeColumn(16);
+}
 
 //Create Rows
 function makeRows(rowNum) {
@@ -23,3 +27,5 @@ function makeColumn(cellNum) {
         }
     }
 }
+
+defaultGrid();
