@@ -1,17 +1,22 @@
 let board = document.querySelector('.board');
 
 //Create Grid
-board.style.gridTemplateColumns = 'repeat(16, 1fr)';
-board.style.gridTemplateRows = 'repeat(16, 1fr)';
-board.style.border = '1px solid #000000';
+const gridSize = (gridColumns, gridRows) => {
+    board.style.gridTemplateColumns = `repeat(${gridColumns}, 1fr)`;
+    board.style.gridTemplateRows = `repeat(${gridRows}, 1fr)`;
+    board.style.border = '5px solid #000000';
 
-for (let i = 0; i < 256; i++) {
-    const square = document.createElement('div');
-    square.style.border = '1px solid #000000';
+    for (let i = 0; i < `${gridColumns*gridRows}`; i++) {
+        const square = document.createElement('div');
+        square.style.border = '1px solid #000000';
 
-    square.addEventListener('mouseover', ()=> {
-        square.style.backgroundColor = 'black';
-    });
+        square.addEventListener('mouseover', () => {
+            square.style.backgroundColor = 'black';
+        });
 
-    board.insertAdjacentElement('beforeend', square);
+        board.insertAdjacentElement('beforeend', square);
+    }
 }
+
+//Grid Size Variable
+gridSize(16, 16);
