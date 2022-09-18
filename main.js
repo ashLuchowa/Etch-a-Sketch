@@ -1,4 +1,6 @@
-let board = document.querySelector('.board');
+const board = document.querySelector('.board');
+const blackButton = document.querySelector('#black-btn');
+const whiteButton = document.querySelector('#white-btn');
 
 //Create Grid
 const gridSize = (gridColumns, gridRows) => {
@@ -10,8 +12,17 @@ const gridSize = (gridColumns, gridRows) => {
         const square = document.createElement('div');
         square.style.border = '1px solid #000000';
 
-        square.addEventListener('mouseover', () => {
-            square.style.backgroundColor = 'black';
+        //Hover and color change event
+        blackButton.addEventListener('click', () => {
+            square.addEventListener('mouseover', () => {
+                square.style.backgroundColor = 'black';
+            });
+        });
+        //Hover and color change event
+        whiteButton.addEventListener('click', () => {
+            square.addEventListener('mouseover', () => {
+                square.style.backgroundColor = 'white';
+            });
         });
 
         board.insertAdjacentElement('beforeend', square);
