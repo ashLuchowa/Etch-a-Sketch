@@ -22,7 +22,7 @@ const gridSize = (gridColumns, gridRows) => {
             // Choose White
             buttons[1].addEventListener('click', () => {
                 square.addEventListener('mouseover', () => {
-                    square.style.backgroundColor = 'white';
+                    square.style.backgroundColor = '';
                 });
             })
         })
