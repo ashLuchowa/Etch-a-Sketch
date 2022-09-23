@@ -20,12 +20,14 @@ const gridSize = (gridColumns, gridRows) => {
                     square.style.backgroundColor = 'black';
                 });
             })
+
             //Choose White
             buttons[1].addEventListener('click', () => {
                 square.addEventListener('mouseover', () => {
                     square.style.backgroundColor = '';
                 });
             })
+
             //Choose Rainbow
             buttons[2].addEventListener('click', () => {
                 square.addEventListener('mouseover', () => {
@@ -41,6 +43,11 @@ const gridSize = (gridColumns, gridRows) => {
                     randomColor();
                 });
             })
+
+            //Choose Reset
+            buttons[3].addEventListener('click', () => {
+                square.style.backgroundColor = '';
+            });
         })
 
         board.insertAdjacentElement('beforeend', square);
