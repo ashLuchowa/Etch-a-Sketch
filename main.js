@@ -1,6 +1,7 @@
 const board = document.querySelector('.board');
 const buttons = document.querySelectorAll('button');
 
+
 //Create Grid
 const gridSize = (gridColumns, gridRows) => {
     board.style.gridTemplateColumns = `repeat(${gridColumns}, 1fr)`;
@@ -13,22 +14,38 @@ const gridSize = (gridColumns, gridRows) => {
 
 
         buttons.forEach(() => {
-            // Choose Black
+            //Choose Black
             buttons[0].addEventListener('click', () => {
                 square.addEventListener('mouseover', () => {
                     square.style.backgroundColor = 'black';
                 });
             })
-            // Choose White
+            //Choose White
             buttons[1].addEventListener('click', () => {
                 square.addEventListener('mouseover', () => {
                     square.style.backgroundColor = '';
+                });
+            })
+            //Choose Rainbow
+            buttons[2].addEventListener('click', () => {
+                square.addEventListener('mouseover', () => {
+
+                    //Random Color function
+                    function randomColor() {
+                        let x = Math.floor(Math.random() * 256);
+                        let y = Math.floor(Math.random() * 256);
+                        let z = Math.floor(Math.random() * 256);
+                        const bgColor = 'rgb(' + x + ',' + y + ',' + z + ')';
+                        square.style.backgroundColor = bgColor;
+                    }
+                    randomColor();
                 });
             })
         })
 
         board.insertAdjacentElement('beforeend', square);
     }
+
 }
 
 //Grid Size Variable
