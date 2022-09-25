@@ -19,6 +19,7 @@ function gridSize(setSize) {
     for (let i = 0; i < setSize * setSize; i++) {
         let square = document.createElement('div');
         square.style.border = '1px solid #000000';
+
         square.addEventListener('mouseover', colorSquare);
         board.insertAdjacentElement('beforeend', square);
 
@@ -26,6 +27,7 @@ function gridSize(setSize) {
         colorResetBtn.addEventListener('click', () => {
             square.style.backgroundColor = '';
         });
+
     }
 }
 
@@ -34,8 +36,13 @@ gridSize(16);
 
 //Change Grid Size Btn
 setSizeButton.addEventListener('click', () => {
-    let sizePrompt = prompt("Type your grid size", "1-100");
-    gridSize(sizePrompt);
+    let sizePrompt = prompt("Type your grid size", "2-100");
+    //set limit range (2-100)
+    if (sizePrompt > 1 && sizePrompt <= 100) {
+        gridSize(sizePrompt);
+    } else {
+        gridSize(16);
+    }
 })
 
 //colorSquare Function
