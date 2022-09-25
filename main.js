@@ -1,19 +1,23 @@
-const board = document.querySelector('.board');
 const buttons = document.querySelectorAll('button');
 const setSizeButton = document.querySelector('#set-size-btn');
 
 
 //Default Grid
-const gridSize = (setSize) => {
+function gridSize(setSize) {
+    let board = document.querySelector('.board');
+    let squares = board.querySelectorAll('div');
+    squares.forEach((div) => div.remove());
     board.style.gridTemplateColumns = `repeat(${setSize}, 1fr)`;
     board.style.gridTemplateRows = `repeat(${setSize}, 1fr)`;
     board.style.border = '5px solid #000000';
 
-    for (let i = 0; i < `${setSize*setSize}`; i++) {
-        const square = document.createElement('div');
+    let amount = setSize * setSize;
+    for (let i = 0; i < amount; i++) {
+        let square = document.createElement('div');
         square.style.border = '1px solid #000000';
 
 
+        //Coloring Function
         buttons.forEach(() => {
             //Choose Black
             buttons[0].addEventListener('click', () => {
@@ -58,6 +62,7 @@ const gridSize = (setSize) => {
 
 setSizeButton.addEventListener('click', () => {
     let sizePrompt = prompt("Type your grid size", "1-100");
+    gridSize(sizePrompt);
     console.log(sizePrompt);
 })
 
